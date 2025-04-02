@@ -1,0 +1,16 @@
+# Node.js
+node_modules/
+npm-debug.log
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Environment files
+.env
+envVars.js
