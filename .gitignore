@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+GENERATE_SOURCEMAP=false
+
 
 # Editor directories and files
 .vscode/*

@@ -2,6 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
+
 
 
 import { envVars } from './utils/envVars.js';
@@ -15,9 +17,13 @@ import { ProtectRoute } from './middleware/protectRoute.js';
 
 
 const app=express();
+
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
+
+
 
 
 dotenv.config({ path: path.resolve("./.env") });

@@ -2,15 +2,16 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CircleArrowOutDownRight ,Menu} from "lucide-react";
+import { useAuthStore } from "../store/Auth.js";
 
 const Navbar = () => {
-  const user = true;
+  const {user,logout} = useAuthStore()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const linkStyle = "hidden sm:block text-white text-l font-semibold ml-4 hover:text-red-500"
   return (
     <>
-      {!user ? (
+      {user===null ? (
         <div className="flex justify-between items-center p-4 bg-transparent text-white absolute w-full top-0 max-w-[1280px] mx-auto max-h-[64px]">
           <img
             src="/netflix-logo.png"
@@ -70,11 +71,11 @@ const Navbar = () => {
               alt=""
               className="rounded-[30%] max-w-[2.25rem] max-h-[2.25rem] md:max-w-[60px]"
             />
-            <Link to="/login" className="flex items-center  px-4 py-2">
+            <Link to="/login" className="flex items-center  px-4 py-2" onClick={logout}>
               <CircleArrowOutDownRight className="transf text-red-600 mr-2" />
             </Link>
             <div className='sm:hidden text-white text-l font-semibold  hover:text-red-500'>
-					<Menu className='size-6 cursor-pointer size-9 ' onClick={toggleMobileMenu} />
+					<Menu className=' cursor-pointer size-9 ' onClick={toggleMobileMenu} />
 				</div>
           </div>
         </div>

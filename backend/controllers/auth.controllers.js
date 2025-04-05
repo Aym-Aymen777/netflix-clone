@@ -23,7 +23,7 @@ export const signUp = async (req, res) => {
         .json({ success: false, message: "Username Already exist" });
     }
     const isEmailExist = await User.findOne({ email });
-    if (isUsernameExist) {
+    if (isEmailExist) {
       return res
         .status(400)
         .json({ success: false, message: "Email Already exist" });
@@ -53,7 +53,7 @@ export const signUp = async (req, res) => {
     generateTokenAndSetCookies(newUser._id, res);
     await newUser.save();
 
-    res.status(201).json({
+    res.status(200).json({
       success: true,
       message: "User Created Successfully",
       user: {
@@ -97,7 +97,7 @@ export const logIn = async (req, res) => {
     generateTokenAndSetCookies(foundUser._id, res);
     await foundUser.save();
 
-    res.status(201).json({
+    res.status(200).json({
       success: true,
       message: "Logging Successfully",
       user: {
