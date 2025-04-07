@@ -12,7 +12,7 @@ const App = () => {
   const {user,authCheck} = useAuthStore()
     useEffect(()=>{
         authCheck()
-    },[user])
+    },[user, authCheck])
   return (
     <>
     <Routes >

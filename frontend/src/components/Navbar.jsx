@@ -8,11 +8,11 @@ const Navbar = () => {
   const {user,logout} = useAuthStore()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-  const linkStyle = "hidden sm:block text-white text-l font-semibold ml-4 hover:text-red-500"
+  const linkStyle = "hidden sm:block text-white text-l font-semibold ml-4 hover:text-red-500 cursor-pointer"
   return (
     <>
       {user===null ? (
-        <div className="flex justify-between items-center p-4 bg-transparent text-white absolute w-full top-0 max-w-[1280px] mx-auto max-h-[64px]">
+        <div className="flex z-10 justify-between items-center p-4 bg-transparent text-white absolute w-full top-0 max-w-[1280px] mx-auto max-h-[64px]">
           <img
             src="/netflix-logo.png"
             alt="netflix logo"
@@ -21,18 +21,18 @@ const Navbar = () => {
           <div className="flex gap-4">
             <Link
               to="/login"
-              className="bg-red-600 px-4 py-2 rounded hover:bg-red-500">
+              className="bg-red-600 px-4 py-2 rounded hover:bg-red-500 cursor-pointer">
               Login
             </Link>
             <Link
               to="/signup"
-              className="bg-red-600 px-4 py-2 rounded hover:bg-red-500">
+              className="bg-red-600 px-4 py-2 rounded hover:bg-red-500 cursor-pointer">
               Sign Up
             </Link>
           </div>
         </div>
       ) : (
-        <div className="flex justify-between items-center p-4 bg-transparent text-white absolute w-full top-0 max-w-[1280px] mx-auto max-h-[64px]">
+        <div className="flex z-10 justify-between items-center p-4 bg-transparent text-white absolute w-full top-0 left-1/2 transform -translate-x-1/2 max-w-[1280px] mx-auto max-h-[64px]">
           <div className="flex items-center">
             <img
               src="/netflix-logo.png"
@@ -71,7 +71,7 @@ const Navbar = () => {
               alt=""
               className="rounded-[30%] max-w-[2.25rem] max-h-[2.25rem] md:max-w-[60px]"
             />
-            <Link to="/login" className="flex items-center  px-4 py-2" onClick={logout}>
+            <Link to="/" className="flex items-center  px-4 py-2 cursor-pointer" onClick={logout}>
               <CircleArrowOutDownRight className="transf text-red-600 mr-2" />
             </Link>
             <div className='sm:hidden text-white text-l font-semibold  hover:text-red-500'>

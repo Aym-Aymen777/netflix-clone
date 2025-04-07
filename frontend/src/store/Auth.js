@@ -64,14 +64,14 @@ export const useAuthStore = create((set) => ({
         },
       });
       if (!data) {
-        toast.error(data.message || "Something went wrong!");
+        toast.error(data.data.message || "Something went wrong!");
         set({ isLoggingOut: false });
         return;
       }
-      if (data.data.status === 200) {
+      if (data.status === 200) {
+        set({ user: null });
         toast.success("User Logged Out Successfully!");
         set({ isLoggingOut: false });
-        set({ user: null });
       } else {
         toast.error(data.message || "Something went wrong!");
         set({ isLoggingOut: false });
@@ -84,11 +84,13 @@ export const useAuthStore = create((set) => ({
   authCheck: async () => {
     // Implement authentication check logic here
     try {
-       await axios.get("/api/v1/auth/authcheck", {
+       const data=await axios.get("/api/v1/auth/authcheck", {
         headers: {
           "Content-Type": "application/json",
         },
+       
       });
+     set ({ user: data.data.user });
     } catch (error) {
        if(error.response?.data?.includes(400)){
         toast.error(error.response?.data?.message || "Something went wrong")
