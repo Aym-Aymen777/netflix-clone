@@ -1,17 +1,23 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { CircleArrowOutDownRight ,Menu} from "lucide-react";
+import { CircleArrowOutDownRight, Menu } from "lucide-react";
 import { useAuthStore } from "../store/Auth.js";
+import { useContentTypeStore } from "../store/ContentType.js";
 
 const Navbar = () => {
-  const {user,logout} = useAuthStore()
+  const { user, logout } = useAuthStore();
+  const { setContentType } = useContentTypeStore();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-  const linkStyle = "hidden sm:block text-white text-l font-semibold ml-4 hover:text-red-500 cursor-pointer"
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    //setContentType()
+  };
+  const linkStyle =
+    "hidden sm:block text-white text-l font-semibold ml-4 hover:text-red-500 cursor-pointer";
   return (
     <>
-      {user===null ? (
+      {user === null ? (
         <div className="flex z-10 justify-between items-center p-4 bg-transparent text-white absolute w-full top-0 max-w-[1280px] mx-auto max-h-[64px]">
           <img
             src="/netflix-logo.png"
@@ -39,29 +45,25 @@ const Navbar = () => {
               alt="netflix logo"
               className="max-w-[100px] md:max-w-[130px]"
             />
-            <Link
-              to={"/"}
-              className={linkStyle}>
+            <Link to={"/"} className={linkStyle}>
               Home
             </Link>
             <Link
               to={"/tvshows"}
-              className={linkStyle}>
+              className={linkStyle}
+              onClick={setContentType("tvshows")}>
               Tv Shows
             </Link>
             <Link
               to={"/movies"}
-              className={linkStyle}>
+              className={linkStyle}
+              onClick={setContentType("movies")}>
               Movies
             </Link>
-            <Link
-              to={"/popular"}
-              className={linkStyle}>
+            <Link to={"/popular"} className={linkStyle}>
               Latest
             </Link>
-            <Link
-              to={"/history"}
-              className={linkStyle}>
+            <Link to={"/history"} className={linkStyle}>
               Search History
             </Link>
           </div>
@@ -71,30 +73,48 @@ const Navbar = () => {
               alt=""
               className="rounded-[30%] max-w-[2.25rem] max-h-[2.25rem] md:max-w-[60px]"
             />
-            <Link to="/" className="flex items-center  px-4 py-2 cursor-pointer" onClick={logout}>
+            <Link
+              to="/"
+              className="flex items-center  px-4 py-2 cursor-pointer"
+              onClick={logout}>
               <CircleArrowOutDownRight className="transf text-red-600 mr-2" />
             </Link>
-            <div className='sm:hidden text-white text-l font-semibold  hover:text-red-500'>
-					<Menu className=' cursor-pointer size-9 ' onClick={toggleMobileMenu} />
-				</div>
+            <div className="sm:hidden text-white text-l font-semibold  hover:text-red-500">
+              <Menu
+                className=" cursor-pointer size-9 "
+                onClick={toggleMobileMenu}
+              />
+            </div>
           </div>
         </div>
       )}
-			{isMobileMenuOpen && (
-				<div className='w-full sm:hidden mt-4 z-50 bg-black border rounded border-gray-800 text-white absolute top-16 left-0'>
-					<Link to={"/"} className='block hover:text-red-500' onClick={toggleMobileMenu}>
-						Movies
-					</Link>
-					<Link to={"/"} className='block hover:text-red-500' onClick={toggleMobileMenu}>
-						Tv Shows
-					</Link>
-          <Link to={"/popular"} className='block hover:text-red-500' onClick={toggleMobileMenu}>
+      {isMobileMenuOpen && (
+        <div className="w-full sm:hidden mt-4 z-50 bg-black border rounded border-gray-800 text-white absolute top-16 left-0">
+          <Link
+            to={"/"}
+            className="block hover:text-red-500"
+            onClick={toggleMobileMenu}>
+            Movies
+          </Link>
+          <Link
+            to={"/"}
+            className="block hover:text-red-500"
+            onClick={toggleMobileMenu}>
+            Tv Shows
+          </Link>
+          <Link
+            to={"/popular"}
+            className="block hover:text-red-500"
+            onClick={toggleMobileMenu}>
             Latest
           </Link>
-					<Link to={"/history"} className='block hover:text-red-500' onClick={toggleMobileMenu}>
-						Search History
-					</Link>
-				</div>
+          <Link
+            to={"/history"}
+            className="block hover:text-red-500"
+            onClick={toggleMobileMenu}>
+            Search History
+          </Link>
+        </div>
       )}
     </>
   );
