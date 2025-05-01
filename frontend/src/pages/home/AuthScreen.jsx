@@ -8,12 +8,18 @@ import { ORIGINAL_IMG_BASE_URL } from "../../utils/constants.js";
 import useGetTrendingMovie from "../../hooks/useGetTrendingMovie";
 import { useContentTypeStore } from "../../store/ContentType.js";
 
+
+
 const AuthScreen = () => {
   const { trendingContent, loading } = useGetTrendingMovie();
   const { contentType } = useContentTypeStore();
 
-  const MOVIE_CATEGORIES = ["Action", "Comedy", "Drama"];
-  const TV_CATEGORIES = ["Thriller", "Sci-Fi", "Documentary"];
+  const MOVIE_CATEGORIES = ["popular", "top_rated", "upcoming", "now_playing"];
+  const TV_CATEGORIES = ["popular", "top_rated", "on_the_air", "airing_today"];
+  
+
+
+
 
   return (
     <>
@@ -81,8 +87,8 @@ const AuthScreen = () => {
       </div>
 
       <div className='flex flex-col gap-10 bg-black py-10'>
-        {(contentType === "movie" ? MOVIE_CATEGORIES : TV_CATEGORIES).map((category) => (
-          <MovieSlider key={category} category={category} />
+        {(contentType === "movies" ? MOVIE_CATEGORIES : TV_CATEGORIES).map((category) => (
+          <MovieSlider key={category} category={category}/>
         ))}
       </div>
     </>

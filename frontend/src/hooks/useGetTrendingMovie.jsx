@@ -1,4 +1,4 @@
-import axios from 'axios'
+ import axios from 'axios'
 import React from 'react'
 import { useContentTypeStore } from '../store/ContentType.js'
 
@@ -34,9 +34,10 @@ const useGetTrendingMovie = () => {
     // Debug: Log state changes
     React.useEffect(() => {
         console.log('Current trending content:', trendingContent)
-    }, [trendingContent])
+    }, [])
     
     return { trendingContent, loading }
 }
 
-export default useGetTrendingMovie
+export default useGetTrendingMovie 
+

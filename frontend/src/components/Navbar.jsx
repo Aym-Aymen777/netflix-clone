@@ -51,13 +51,13 @@ const Navbar = () => {
             <Link
               to={"/tvshows"}
               className={linkStyle}
-              onClick={setContentType("tvshows")}>
+              onClick={() => setContentType("tvshows")}>
               Tv Shows
             </Link>
             <Link
               to={"/movies"}
               className={linkStyle}
-              onClick={setContentType("movies")}>
+              onClick={() => setContentType("movies")}>
               Movies
             </Link>
             <Link to={"/popular"} className={linkStyle}>

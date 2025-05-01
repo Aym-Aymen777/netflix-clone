@@ -22,7 +22,7 @@ export const getMovieTrailers = async (req, res) => {
   const { id } = req.params;
   try {
     const data = await fetchFromTMDB(
-      `https://api.themoviedb.org/3/movie/${id}/watch/providers`
+      `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`
     );
     if (!data) {
       return res

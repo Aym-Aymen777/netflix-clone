@@ -92,9 +92,9 @@ export const useAuthStore = create((set) => ({
       });
      set ({ user: data.data.user });
     } catch (error) {
-       if(error.response?.data?.includes(400)){
-        toast.error(error.response?.data?.message || "Something went wrong")
-       }
+    //
+    console.log(error)
+       
     }
   },
 }));
