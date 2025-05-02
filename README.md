@@ -4,10 +4,12 @@ Welcome to the **Netflix Clone** project! This is a full-featured streaming plat
 
 ## 🚀 Live Demo
 
-👉 [Live Website](https://github.com/Aym-Aymen777/netflix-clone.git) *(Replace with your deployed app link)*
+👉 [Live Website](https://github.com/Aym-Aymen777/netflix-clone.git) 
 
----[live demo](/image.png)
+![Preview](/image.png)
 
+
+---
 ## 🛠️ Tech Stack
 
 - ⚛️ **React** – Frontend UI  
@@ -119,11 +121,9 @@ cors
 🙌 Contributing
 Contributions are welcome! Feel free to fork this repo and submit a PR. Let’s build something amazing. 🛠️
 
-📄 License
-This project is licensed under the MIT License.
 
 👨‍💻 Author
-Built with ❤️ by Your Name
+Built with ❤️ by C.Aymen
 
 pgsql
 Copier
