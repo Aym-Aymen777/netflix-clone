@@ -6,7 +6,7 @@ Welcome to the **Netflix Clone** project! This is a full-featured streaming plat
 
 👉 [Live Website](https://github.com/Aym-Aymen777/netflix-clone.git) 
 
-![Preview](/image.png)
+![Preview](/frontend/public/image.png)
 
 
 ---
