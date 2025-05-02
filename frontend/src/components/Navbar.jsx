@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { CircleArrowOutDownRight, Menu } from "lucide-react";
 import { useAuthStore } from "../store/Auth.js";
 import { useContentTypeStore } from "../store/ContentType.js";
+import { Search } from "lucide-react";
 
 const Navbar = () => {
   const { user, logout } = useAuthStore();
@@ -60,7 +61,7 @@ const Navbar = () => {
               onClick={() => setContentType("movies")}>
               Movies
             </Link>
-            <Link to={"/popular"} className={linkStyle}>
+            <Link to={"/"} className={linkStyle}>
               Latest
             </Link>
             <Link to={"/history"} className={linkStyle}>
@@ -68,6 +69,11 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="flex gap-4 items-center">
+            <Link
+              to={"/search/movie"}
+              className="hidden sm:block text-white text-l font-semibold hover:text-red-500 cursor-pointer">
+              <Search />
+            </Link>
             <img
               src="/avatar1.png"
               alt=""
@@ -103,7 +109,7 @@ const Navbar = () => {
             Tv Shows
           </Link>
           <Link
-            to={"/popular"}
+            to={"/"}
             className="block hover:text-red-500"
             onClick={toggleMobileMenu}>
             Latest

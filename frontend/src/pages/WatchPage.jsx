@@ -132,7 +132,7 @@ const WatchPage = () => {
     {/* Scrollable Container */}
     <div
       id="similar-scroll"
-      className="flex overflow-x-auto gap-4 pb-2 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900"
+      className="flex overflow-x-auto gap-4 pb-2 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900 scrollbar-hide"
     >
       {similarMovies.map((movie) => (
         <Link
@@ -145,8 +145,8 @@ const WatchPage = () => {
             alt={movie.title || movie.name}
             className="rounded-lg mb-2 cursor-pointer h-[200px] object-cover hover:scale-105 transition-transform duration-200 "  
           />
-          <h3 className="text-lg font-semibold">{movie.title}</h3>
-          <p className="text-gray-400">{movie.release_date}</p>
+          <h3 className="text-lg font-semibold">{movie.title || movie.name}</h3>
+          <p className="text-gray-400">{movie.release_date ||  movie.first_air_date}</p>
         </Link>
       ))}
     </div>

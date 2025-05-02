@@ -17,6 +17,14 @@ body{
 .transf{
 	transform:rotate(-45deg);
 }
+.scrollbar-hide {
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none;  /* IE 10+ */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, Opera */
+  }
 
 h1 {
 	max-width: 20ch;
