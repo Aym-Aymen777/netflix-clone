@@ -28,4 +28,3 @@ GENERATE_SOURCEMAP=false
 
 # Environment files
 .env
-envVars.js
