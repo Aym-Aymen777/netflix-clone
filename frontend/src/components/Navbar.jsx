@@ -18,7 +18,7 @@ const Navbar = () => {
     "hidden sm:block text-white text-l font-semibold ml-4 hover:text-red-500 cursor-pointer";
   return (
     <>
-      {user !== null ? (
+      {user === null ? (
         <div className="flex z-10 justify-between items-center p-4 bg-transparent text-white absolute w-full top-0 max-w-[1280px] mx-auto max-h-[64px]">
           <img
             src="/netflix-logo.png"
