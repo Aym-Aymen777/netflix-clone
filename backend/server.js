@@ -19,7 +19,7 @@ import { ProtectRoute } from './middleware/protectRoute.js';
 const app=express();
 
 app.use(cors({
-  origin: ['http://localhost:5173'], // allow your frontend
+  origin: 'http://localhost:5173', // allow your frontend
   credentials: true, // if you're using cookies
 }));
 app.use(express.json());
