@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL+"/api/v1", // تأكد أنها تشير إلى السيرفر الصحيح
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000", // تأكد أنها تشير إلى السيرفر الصحيح
   withCredentials: true, // إذا كنت تستخدم الـ cookie
 });
 
