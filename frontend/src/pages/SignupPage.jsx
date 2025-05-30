@@ -15,6 +15,8 @@ const SignupPage = () => {
     e.preventDefault();
      await signup({ username, email, password });
   };
+
+
   
   return (
     <div className="min-h-screen flex items-center justify-center hero-bg ">

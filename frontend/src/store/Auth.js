@@ -84,17 +84,16 @@ export const useAuthStore = create((set) => ({
   authCheck: async () => {
     // Implement authentication check logic here
     try {
-       const data=await api.get("/api/v1/auth/authcheck", {
+      const data = await api.get("/api/v1/auth/authcheck", {
+        withCredentials: true,
         headers: {
           "Content-Type": "application/json",
         },
-       
       });
-     set ({ user: data.data.user });
+      set({ user: data.data.user });
     } catch (error) {
-    //
-    console.log(error)
-       
+      //
+      console.log(error);
     }
   },
 }));
