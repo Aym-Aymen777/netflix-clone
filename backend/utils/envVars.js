@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import path from "path";
 
-dotenv.config({ path: path.resolve("./.env") });
+dotenv.config({ path: path.resolve("backend/.env") });
 
 export const envVars = {
   PORT: process.env.PORT || 3000,

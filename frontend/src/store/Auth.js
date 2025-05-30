@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../axios.js";
 import { create } from "zustand";
 import { toast } from "react-hot-toast";
 
@@ -11,7 +11,7 @@ export const useAuthStore = create((set) => ({
     // Implement sign-up logic here
     set({ isSigningUp: true });
     try {
-      const response = await axios.post("/api/v1/auth/signup", credentials, {
+      const response = await api.post("/api/v1/auth/signup", credentials, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -35,7 +35,7 @@ export const useAuthStore = create((set) => ({
     // Implement login logic here
     set({ isLoggingIn: true });
     try {
-      const data = await axios.post("/api/v1/auth/login", credentials, {
+      const data = await api.post("/api/v1/auth/login", credentials, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -58,7 +58,7 @@ export const useAuthStore = create((set) => ({
     // Implement logout logic here
     set({ isLoggingOut: true });
     try {
-      const data = await axios.post("/api/v1/auth/logout", {
+      const data = await api.post("/api/v1/auth/logout", {
         headers: {
           "Content-Type": "application/json",
         },
@@ -84,7 +84,7 @@ export const useAuthStore = create((set) => ({
   authCheck: async () => {
     // Implement authentication check logic here
     try {
-       const data=await axios.get("/api/v1/auth/authcheck", {
+       const data=await api.get("/api/v1/auth/authcheck", {
         headers: {
           "Content-Type": "application/json",
         },

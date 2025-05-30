@@ -1,4 +1,4 @@
- import axios from 'axios'
+ import api from '../axios.js'
 import React from 'react'
 import { useContentTypeStore } from '../store/ContentType.js'
 
@@ -10,7 +10,7 @@ const useGetTrendingMovie = () => {
     React.useEffect(() => {
         const fetchTrendingMovie = async () => {
             try {
-                const response = await axios.get(`/api/v1/${contentType}/trending`)
+                const response = await api.get(`/api/v1/${contentType}/trending`)
                 
                 // Check if response has data
                 if (response.data) {

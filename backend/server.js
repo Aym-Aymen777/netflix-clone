@@ -26,7 +26,7 @@ app.use(cookieParser());
 
 
 
-dotenv.config({ path: path.resolve("./.env") });
+dotenv.config({ path: path.resolve('.env') });
 const PORT=envVars.PORT||5000;
 
 

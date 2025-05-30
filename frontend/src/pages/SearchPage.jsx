@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { Search } from "lucide-react";
-import axios from "axios";
+import api from "../axios.js";
 import { SMALL_IMG_BASE_URL } from "../utils/constants.js";
 
 const ALLOWED_TYPES = ["movie", "tv", "person"];
@@ -24,7 +24,7 @@ const SearchPage = () => {
     setSearchResults([]);
 
     try {
-      const response = await axios.get(
+      const response = await api.get(
         `/api/v1/search/${type}/${encodeURIComponent(searchInput)}`,
         {
           headers: {

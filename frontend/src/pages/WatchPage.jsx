@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ReactPlayer from "react-player";
-import axios from "axios";
+import api from "../axios.js";
 import { Link, useParams } from "react-router-dom";
 import { useContentTypeStore } from "../store/ContentType.js";
 import {ORIGINAL_IMG_BASE_URL} from "../utils/constants.js";
@@ -18,7 +18,7 @@ const WatchPage = () => {
 
   const GetMovieTrailer = async () => {
    try {
-    const response = await axios.get(`/api/v1/${contentType}/${id}/trailers`)
+    const response = await api.get(`/api/v1/${contentType}/${id}/trailers`)
     const data = response.data.data.results;
     setTrailers(data);
    } catch (error) {
@@ -29,7 +29,7 @@ const WatchPage = () => {
 
   const getMovieDetails = async () => {
     try {
-      const response = await axios.get(`/api/v1/${contentType}/${id}`)
+      const response = await api.get(`/api/v1/${contentType}/${id}`)
       const data = response.data.data;
       console.log(data);
       setMovieDetails(data);
@@ -40,7 +40,7 @@ const WatchPage = () => {
 
   const getSimilarMovies = async () => {
     try {
-      const response = await axios.get(`/api/v1/${contentType}/${id}/similar`)
+      const response = await api.get(`/api/v1/${contentType}/${id}/similar`)
       const data = response.data.data.results;
       setSimilarMovies(data);
     } catch (error) {

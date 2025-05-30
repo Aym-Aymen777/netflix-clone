@@ -27,4 +27,6 @@ GENERATE_SOURCEMAP=false
 
 
 # Environment files
-.env
+/frontend/.env
+/backend/.env
+/.env
