@@ -113,7 +113,11 @@ export const logIn = async (req, res) => {
 
 export const logOut = async (req, res) => {
   try {
-    res.clearCookie("jwt-netflix");
+    res.clearCookie("jwt-netflix", {
+      httpOnly: true,
+      sameSite: "none", // CSRF attacks cross-site request forgery attacks
+      secure: true, // set to true if using HTTPS, false for HTTP
+    });
     res.status(200).json({ success: true, message: "Logout successfully" });
   } catch (error) {
     console.log("error in logout controller : ", error.message);
