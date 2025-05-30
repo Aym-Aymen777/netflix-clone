@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { SMALL_IMG_BASE_URL } from "../utils/constants.js";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useContentTypeStore } from "../store/ContentType.js";
-import axios from "axios";
+import api from "../axios.js";
 
 const MovieSlider = ({ category }) => {
     const { contentType } = useContentTypeStore();
@@ -29,7 +29,7 @@ const MovieSlider = ({ category }) => {
     useEffect(() => {
         const getMoviesByCategory = async () => {
             try {
-                const response = await axios.get(`/api/v1/${contentType}/${category}`, {
+                const response = await api.get(`/api/v1/${contentType}/${category}`, {
                     headers: {
                         "Content-Type": "application/json",
                     },
